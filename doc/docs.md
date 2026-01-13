@@ -58,7 +58,7 @@
     - [TicketStatus](#-TicketStatus)
   
 - [service.proto](#service-proto)
-    - [Simple](#-Simple)
+    - [Simple](#v2-Simple)
   
 - [tags.proto](#tags-proto)
     - [CategoriesRequest](#-CategoriesRequest)
@@ -844,7 +844,7 @@ Request for seats.
  
 
 
-<a name="-Simple"></a>
+<a name="v2-Simple"></a>
 
 ### Simple
 
