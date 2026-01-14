@@ -58,7 +58,7 @@
     - [TicketStatus](#-TicketStatus)
   
 - [service.proto](#service-proto)
-    - [Simple](#-Simple)
+    - [Simple](#v2-Simple)
   
 - [tags.proto](#tags-proto)
     - [CategoriesRequest](#-CategoriesRequest)
@@ -177,6 +177,9 @@ Event structure.
 | deal | [Deal](#Deal) |  | [O] deal, if request is performed by agent |
 | org_extra | [Percentage](#Percentage) |  | [O] commission percentage, if request is performed by organizer |
 | legal_ru | [LegalRu](#LegalRu) |  | [O] seller&#39;s bank details |
+| created_at | [google.protobuf.Timestamp](#google-protobuf-Timestamp) |  |  |
+| updated_at | [google.protobuf.Timestamp](#google-protobuf-Timestamp) |  |  |
+| widget_token | [string](#string) |  |  |
 | sets | [TicketSet](#TicketSet) | repeated | ticket sets |
 | tickets_amount | [uint32](#uint32) |  | total amount of tickets in the Event |
 | tickets_amount_vacant | [uint32](#uint32) |  | amount of vacant tickets in the Event |
@@ -203,6 +206,7 @@ Request for Events.
 | org | [string](#string) |  | Filtering by organizer id |
 | status | [EventsRequest.Status](#EventsRequest-Status) |  | Filtering by Event status |
 | lifetime | [LiftimeFilter](#LiftimeFilter) |  |  |
+| updated_at | [TimestampFilter](#TimestampFilter) |  |  |
 
 
 
@@ -280,6 +284,7 @@ Ticket set structure.
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
 | price | [uint64](#uint64) |  | Price for ticket set |
+| currency | [string](#string) |  | Currency for ticket set |
 
 
 
@@ -630,7 +635,7 @@ Request for Event groups.
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
 | id | [string](#string) |  |  |
-| type | [ModType](#ModType) |  |  |
+| type | [ModType](#ModType) |  | Type of modifier |
 | promotion | [ModPromotionType](#ModPromotionType) |  | Promotion settings |
 
 
@@ -646,8 +651,8 @@ Request for Event groups.
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| lifetime | [Lifetime](#Lifetime) |  |  |
-| sets | [string](#string) | repeated | Ticket sets discount is related to |
+| lifetime | [Lifetime](#Lifetime) |  | [O] Lifetime of promotion (empty is always) |
+| sets | [string](#string) | repeated | [O] Ticket sets discount is related to (empty is all) |
 | discount_percentage | [Percentage](#Percentage) |  | Percentage discount |
 | discount_fix | [uint64](#uint64) |  | Fixed discount |
 | levels_percentage | [ModPromotionType.LevelsPercentage](#ModPromotionType-LevelsPercentage) |  | Levels for percentage discount |
@@ -681,8 +686,8 @@ Request for Event groups.
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| level | [uint64](#uint64) |  |  |
-| value | [uint64](#uint64) |  |  |
+| level | [uint64](#uint64) |  | The amount of money in the order from which the discount is applied |
+| value | [uint64](#uint64) |  | Fixed discount |
 
 
 
@@ -712,8 +717,8 @@ Request for Event groups.
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| level | [uint64](#uint64) |  |  |
-| value | [Percentage](#Percentage) |  |  |
+| level | [uint64](#uint64) |  | The amount of money in the order from which the discount is applied |
+| value | [Percentage](#Percentage) |  | Percentage discount |
 
 
 
@@ -839,7 +844,7 @@ Request for seats.
  
 
 
-<a name="-Simple"></a>
+<a name="v2-Simple"></a>
 
 ### Simple
 
