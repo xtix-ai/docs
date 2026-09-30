@@ -1,7 +1,7 @@
 
 ## What is xtix-simple
 
-This is a lightweight integration service for XTIX. It provides an alternative way to work together compared to embedding the XTIX widget on a ticket sales website. It is a gRPC server that supports requests for retrieving data needed to display a ticket ordering form. The actual order in XTIX is created using the [RESTful API](https://ticketscloud.readthedocs.io).
+This is a lightweight integration service for XTIX. It provides an alternative way to work together compared to embedding the XTIX widget on a ticket sales website. It is a gRPC server that supports requests for retrieving data needed to display a ticket ordering form. The actual order in XTIX is created using the [RESTful API](https://docs.xtix.ai/walkthrough/index.html).
 
 ## What data is provided?
 
